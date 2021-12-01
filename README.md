@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+
+## Creamos el proyecto
+ng generate component register
+ng generate component home
+ng generate component login
+
+## Creamos el Model
+ng generate interface Model/Role
+
+## Creamos el service
+ng generate service service/user
