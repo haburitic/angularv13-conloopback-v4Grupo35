@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class="col-md-12">
+  <div class="card card-container">
+    <form name="form" #f="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email"
+        [(ngModel)]="user.email"
+         required minlength="3" maxlength="30"
+         #email="ngModel"
+         />
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" name="password"
+        [(ngModel)]="user.password"
+        required minlength="3" maxlength="30"
+        #password="ngModel"
+        />
+      </div>
+      <br>
+      <div class="form-group">
+        <button  class="btn btn-primary btn-block">Login</button>
+      </div>
+
+    </form>
+
+
+    <div class="alert alert-success" role="alert" *ngIf="isSuccessful">
+      Se guardo con exito
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="isSignUpFailed">
+      Ocurrio un error {{errorMessages}}
+    </div>
+
+
+  </div>
+
+</div>

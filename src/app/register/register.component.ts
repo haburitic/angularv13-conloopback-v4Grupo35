@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   isSuccessful = false;
   isSignUpFailed = false;
+  errorMessages='';
 
   constructor(
     private userService:UserService
@@ -34,13 +35,23 @@ export class RegisterComponent implements OnInit {
 
   onSubmit():void {
     this.userService.createUser(this.user).subscribe({
-      next(response) {
+      next: (response)=> {
+
         console.log(response);
+        this.isSuccessful=true;
+        this.isSignUpFailed = false;
+
       },
-      error(err) {
-        console.error('Error: ' + err);
+      error: (err)=> {
+        this.isSuccessful=false;
+        this.isSignUpFailed = true;
+        if(err.status===404){
+          this.errorMessages='Servidor no existe';
+        }
+        console.error('Error: ' + err.message);
+
       },
-        complete() {
+        complete:()=>{
           console.log('Completed');
       }
     });

@@ -27,6 +27,16 @@
       </div>
 
     </form>
+
+
+    <div class="alert alert-success" role="alert" *ngIf="isSuccessful">
+      Se guardo con exito
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="isSignUpFailed">
+      Ocurrio un error {{errorMessages}}
+    </div>
+
+
   </div>
 
 </div>

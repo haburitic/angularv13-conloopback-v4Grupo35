@@ -32,9 +32,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ng generate component register
 ng generate component home
 ng generate component login
+ng generate component menu
 
 ## Creamos el Model
 ng generate interface Model/Role
 
 ## Creamos el service
 ng generate service service/user
+ng generate service service/token
