@@ -7,8 +7,9 @@ import { AppComponent } from './app.component';
 import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MenuComponent } from './menu/menu.component';
+import { Interceptor } from './helper/Interceptor';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,11 @@ import { MenuComponent } from './menu/menu.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [   {
+    provide: HTTP_INTERCEPTORS,
+    useClass: Interceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

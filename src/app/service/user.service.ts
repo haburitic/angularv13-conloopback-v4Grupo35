@@ -9,13 +9,6 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 })
 export class UserService {
 
-  API_URL='http//localhost:3000/';
-
-  httpOptions={
-    headers: new HttpHeaders(
-      {'Content-Type':'application/json'}
-    )
-  };
 
   constructor(
     private http: HttpClient
@@ -24,11 +17,11 @@ export class UserService {
   }
 
   createUser(user:User):Observable<any> {
-    return this.http.post(this.API_URL+'signup',user,this.httpOptions);
+    return this.http.post('signup',user);
   }
 
   login(user:User): Observable<any>{
-    return this.http.post(this.API_URL+'users/login',user,this.httpOptions);
+    return this.http.post('users/login',user);
   }
 
 }

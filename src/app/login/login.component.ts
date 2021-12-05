@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../Model/user';
+import { TokenService } from '../service/token.service';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   errorMessages='';
 
   constructor(
-    private userService:UserService
+    private userService:UserService,
+    private tokenService:TokenService
     ) { }
 
   ngOnInit(): void {
@@ -24,13 +26,14 @@ export class LoginComponent implements OnInit {
   onSubmit():void{
     this.userService.login(this.user).subscribe({
       next: (data)=>{
-
+        this.tokenService.saveToken(data.token);
           this.isSuccessful = true;
           this.isSignUpFailed = false;
       },
       error: (error)=>{
         this.isSuccessful = false;
         this.isSignUpFailed = true;
+        this.tokenService.singnOut();
       },
       complete: ()=>{
         console.log("complete");

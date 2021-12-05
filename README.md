@@ -40,3 +40,7 @@ ng generate interface Model/Role
 ## Creamos el service
 ng generate service service/user
 ng generate service service/token
+
+## guard
+
+ng generate guard helper/auth
