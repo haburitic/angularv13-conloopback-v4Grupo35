@@ -25,7 +25,7 @@ import { Interceptor } from './helper/Interceptor';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [   {
+  providers: [  {
     provide: HTTP_INTERCEPTORS,
     useClass: Interceptor,
     multi: true

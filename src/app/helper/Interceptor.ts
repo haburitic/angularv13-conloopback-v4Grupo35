@@ -25,6 +25,13 @@ export class Interceptor implements HttpInterceptor{
         .append('Content-Type','application/json'),
         url: environment.urlBack+req.url
       });
+    }else{
+      authReq=req.clone({
+        headers:req.headers
+        .append('Content-Type','application/json'),
+        url: environment.urlBack+req.url
+      });
+
     }
     return next.handle(authReq);
   }
