@@ -33,13 +33,17 @@ ng generate component register
 ng generate component home
 ng generate component login
 ng generate component menu
+ng generate component empleado
 
 ## Creamos el Model
 ng generate interface Model/Role
+ng generate interface Model/empleado
 
 ## Creamos el service
 ng generate service service/user
 ng generate service service/token
+ng generate service service/empleado
+
 
 ## guard
 

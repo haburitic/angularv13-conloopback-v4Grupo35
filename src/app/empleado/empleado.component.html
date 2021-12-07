@@ -1,0 +1,25 @@
+<div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">nombre</th>
+        <th scope="col">apellido</th>
+        <th scope="col">numeroDocumento</th>
+        <th scope="col">_id</th>
+        <th scope="col">Acción</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empleado of listaEmpleado">
+        <td>{{empleado.nombre}}</td>
+        <td>{{empleado.apellido}}</td>
+        <td>{{empleado.numeroDocumento}}</td>
+        <td>{{empleado._id}}</td>
+        <td><button type="button" (click)="eliminar(empleado._id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
