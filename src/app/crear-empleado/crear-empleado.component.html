@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Crear Empleado</h2>
+<mat-dialog-content class="mat-typography">
+  <form name="form" #f="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nombre">nombre</label>
+      <input type="text" class="form-control" name="nombre"
+      [(ngModel)]="empleado.nombre"
+       required minlength="3" maxlength="30"
+       #nombre="ngModel"
+       />
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="apellido">apellido</label>
+      <input type="text" class="form-control" name="apellido"
+      [(ngModel)]="empleado.apellido"
+       required minlength="3" maxlength="30"
+       #apellido="ngModel"
+       />
+    </div>
+    <br>
+    <div class="form-group">
+      <label for="numeroDocumento">numeroDocumento</label>
+      <input type="text" class="form-control" name="numeroDocumento"
+      [(ngModel)]="empleado.numeroDocumento"
+       required minlength="3" maxlength="30"
+       #numeroDocumento="ngModel"
+       />
+    </div>
+    <br>
+    <div class="form-group">
+      <button  class="btn btn-primary btn-block">guardar</button>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>cerrar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>confirmar</button>
+
+</mat-dialog-actions>

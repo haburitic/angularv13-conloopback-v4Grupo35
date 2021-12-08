@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from '../Model/empleado';
 import { EmpleadoService } from '../service/empleado.service';
+import { MatDialog } from '@angular/material/dialog';
+import {CrearEmpleadoComponent} from '../crear-empleado/crear-empleado.component';
 
 @Component({
   selector: 'app-empleado',
@@ -9,7 +11,8 @@ import { EmpleadoService } from '../service/empleado.service';
 })
 export class EmpleadoComponent implements OnInit {
 
-  constructor(private empleadoService:EmpleadoService) { }
+  constructor(private empleadoService:EmpleadoService,
+  private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.consultarTodo();
@@ -49,4 +52,20 @@ export class EmpleadoComponent implements OnInit {
     });
   }
 
+  crear():void{
+    const dialogRef =this.dialog.open(CrearEmpleadoComponent);
+    dialogRef.afterClosed().subscribe(result =>{
+      console.log(result);
+      this.consultarTodo();
+    });
+
+  }
+  modificar(empleado:any) {
+
+    const dialogRef = this.dialog.open(CrearEmpleadoComponent,
+          {
+            data: empleado
+        }
+      );
+      }
 }

@@ -34,6 +34,7 @@ ng generate component home
 ng generate component login
 ng generate component menu
 ng generate component empleado
+ng generate component crear-empleado
 
 ## Creamos el Model
 ng generate interface Model/Role

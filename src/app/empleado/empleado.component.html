@@ -1,3 +1,5 @@
+<button type="button" (click)="crear()">Crear Empleado</button>
+
 <div>
 
   <table class="table">
@@ -17,7 +19,9 @@
         <td>{{empleado.apellido}}</td>
         <td>{{empleado.numeroDocumento}}</td>
         <td>{{empleado._id}}</td>
-        <td><button type="button" (click)="eliminar(empleado._id)">Eliminar</button>
+        <td>
+          <button type="button"  (click)="modificar(empleado)">Editar</button>
+          <button type="button" (click)="eliminar(empleado._id)">Eliminar</button>
         </td>
       </tr>
     </tbody>

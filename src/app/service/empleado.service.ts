@@ -14,7 +14,7 @@ export class EmpleadoService {
     return this.http.get('empleados');
     }
   modificar(empleado: Empleado): Observable<any> {
-    return this.http.put('empleados',JSON.stringify(empleado));
+    return this.http.put('empleados/'+empleado._id,JSON.stringify(empleado));
   }
   crear(empleado: Empleado): Observable<any> {
     return this.http.post('empleados', JSON.stringify(empleado));
